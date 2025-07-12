@@ -2,22 +2,6 @@
 Developed a smart farming platform using RNNs for Bacillus prediction, CNNs for leaf disease detection, and Random Forest for disease risk prediction, based on IoT-based environmental data. Created a web dashboard for real-time trends and fertilizer recommendations.
 
 
-<div align="center">
-
-![AgroPulse Logo](images/logo.png)
-
-**Empowering Farmers with AI-Driven Crop Health Insights**
-
-[![Next.js](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org/)
-[![Python](https://img.shields.io/badge/Python-3.8+-blue)](https://python.org/)
-[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)](https://tensorflow.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)](https://typescriptlang.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
-[Live Demo](https://agropulse-demo.vercel.app) • [Documentation](docs/) • [Report Bug](issues/) • [Request Feature](issues/)
-
-</div>
-
 ## 📋 Table of Contents
 
 - [About The Project](#about-the-project)
@@ -30,10 +14,7 @@ Developed a smart farming platform using RNNs for Bacillus prediction, CNNs for 
 - [Project Structure](#project-structure)
 - [Screenshots](#screenshots)
 - [Machine Learning Models](#machine-learning-models)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-- [Acknowledgments](#acknowledgments)
+
 
 ## 🎯 About The Project
 
