@@ -18,7 +18,7 @@ Developed a smart farming platform using RNNs for Bacillus prediction, CNNs for 
 
 ## 🎯 About The Project
 
-![Homepage Screenshot](images/homepage.png)
+![Homepage Screenshot](Homepage.png)
 
 AgroPulse is an innovative AI-powered agricultural platform specifically designed for **turmeric cultivation**. It leverages advanced machine learning algorithms to help farmers predict crop diseases, analyze soil health, and receive actionable recommendations for optimal crop management.
 
@@ -157,7 +157,7 @@ SECRET_KEY=your-secret-key-here
 ### Step 1: Access the Application
 Navigate to `http://localhost:3000` in your web browser.
 
-![Login Screen](images/login-screen.png)
+![Login Screen](Login Screen.png)
 
 ### Step 2: Input Environmental Data
 Fill in the prediction form with:
