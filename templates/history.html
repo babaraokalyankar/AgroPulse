@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}History - AgroPulse{% endblock %}
+
+{% block content %}
+<div class="container mt-5 pt-5">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-primary mb-4">📋 Prediction History</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow border-0">
+                <div class="card-body">
+                    {% if history %}
+                    {% for item in history %}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h6 class="card-title">
+                                        <span class="badge bg-primary me-2">{{ item.type.title() }}</span>
+                                        {% if item.type == 'image' %}
+                                            {{ item.result_data.disease_class }}
+                                        {% endif %}
+                                    </h6>
+                                    <p class="text-muted small">{{ item.timestamp }}</p>
+                                    
+                                    {% if item.result_data.recommendations %}
+                                    <div class="mt-2">
+                                        <small class="text-success fw-bold">Recommendations:</small>
+                                        <ul class="small text-success mt-1">
+                                            {% for rec in item.result_data.recommendations[:2] %}
+                                            <li>{{ rec }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-4 text-end">
+                                    {% if item.image_filename %}
+                                    <img src="{{ url_for('static', filename='uploads/' + item.image_filename) }}" 
+                                         alt="Plant image" class="img-thumbnail" style="width: 100px; height: 100px;">
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <div class="text-center py-5">
+                        <i class="fas fa-history fa-3x text-muted mb-3"></i>
+                        <h5 class="text-muted">No history available</h5>
+                        <a href="{{ url_for('image_analysis') }}" class="btn btn-primary">
+                            <i class="fas fa-camera me-2"></i>Start Analysis
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

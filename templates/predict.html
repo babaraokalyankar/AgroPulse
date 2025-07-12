@@ -1,0 +1,450 @@
+{% extends "base.html" %}
+
+{% block title %}Disease Prediction - AgroPulse{% endblock %}
+
+{% block content %}
+<div class="container mt-5 pt-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="text-center mb-5">
+                <h1 class="display-4 fw-bold text-success">
+                    <i class="fas fa-leaf me-3"></i>Agricultural Analysis
+                </h1>
+                <p class="lead text-muted">Complete crop and soil health assessment</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <ul class="nav nav-pills nav-fill mb-4" id="predictionTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="turmeric-tab" data-bs-toggle="pill" data-bs-target="#turmeric" type="button" role="tab">
+                <i class="fas fa-leaf me-2"></i>Turmeric Disease Prediction
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="bacillus-tab" data-bs-toggle="pill" data-bs-target="#bacillus" type="button" role="tab">
+                <i class="fas fa-microscope me-2"></i>Soil Bacteria Analysis
+            </button>
+        </li>
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content" id="predictionTabsContent">
+        <!-- Turmeric Disease Prediction -->
+        <div class="tab-pane fade show active" id="turmeric" role="tabpanel">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-success text-white">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-leaf me-2"></i>Turmeric Disease Prediction
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <form id="turmericForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Soil Moisture (%)</label>
+                                <input type="number" class="form-control" name="soil_moisture" step="0.01" placeholder="e.g., 25.5" required>
+                                <div class="form-text">Optimal range: 15-40%</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Soil pH</label>
+                                <input type="number" class="form-control" name="soil_pH" step="0.01" placeholder="e.g., 6.5" required>
+                                <div class="form-text">Optimal range: 6.0-7.5</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Temperature (°C)</label>
+                                <input type="number" class="form-control" name="temperature" step="0.01" placeholder="e.g., 28.5" required>
+                                <div class="form-text">Optimal range: 20-35°C</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Rainfall (mm)</label>
+                                <input type="number" class="form-control" name="rainfall" step="0.01" placeholder="e.g., 150.0" required>
+                                <div class="form-text">Monthly rainfall amount</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Humidity (%)</label>
+                                <input type="number" class="form-control" name="humidity" step="0.01" placeholder="e.g., 65.0" required>
+                                <div class="form-text">Relative humidity percentage</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Irrigation Type</label>
+                                <select class="form-select" name="irrigation_type" required>
+                                    <option value="">Select irrigation type</option>
+                                    <option value="Drip">Drip Irrigation</option>
+                                    <option value="Sprinkler">Sprinkler System</option>
+                                    <option value="Manual">Manual Watering</option>
+                                    <option value="Unknown">Other/Unknown</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Fertilizer Type</label>
+                                <select class="form-select" name="fertilizer_type" required>
+                                    <option value="">Select fertilizer type</option>
+                                    <option value="Organic">Organic Fertilizer</option>
+                                    <option value="Inorganic">Chemical Fertilizer</option>
+                                    <option value="Mixed">Mixed (Organic + Chemical)</option>
+                                    <option value="Unknown">Other/Unknown</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Pesticide Usage (ml)</label>
+                                <input type="number" class="form-control" name="pesticide_usage" step="0.01" placeholder="e.g., 25.0" required>
+                                <div class="form-text">Monthly pesticide application</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <button type="submit" class="btn btn-success btn-lg w-100">
+                                <i class="fas fa-leaf me-2"></i>
+                                <span class="submit-text">Predict Disease Status</span>
+                                <span class="loading-text d-none">
+                                    <i class="fas fa-spinner fa-spin me-2"></i>Analyzing...
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <!-- Results -->
+                    <div id="turmericResults" class="mt-4 d-none"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bacillus Bacteria Analysis -->
+        <div class="tab-pane fade" id="bacillus" role="tabpanel">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-microscope me-2"></i>Soil Bacteria Analysis
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <form id="bacillusForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Soil Temperature (°C)</label>
+                                <input type="number" class="form-control" name="soil_temperature" step="0.01" placeholder="e.g., 25.5" required>
+                                <div class="form-text">Current soil temperature</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Rainfall Amount (mm)</label>
+                                <input type="number" class="form-control" name="rainfall_amount" step="0.01" placeholder="e.g., 120.5" required>
+                                <div class="form-text">Recent rainfall amount</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Soil pH</label>
+                                <input type="number" class="form-control" name="soil_pH" step="0.01" placeholder="e.g., 6.8" required>
+                                <div class="form-text">Soil acidity level</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">UV Index (UVI)</label>
+                                <input type="number" class="form-control" name="uv_index" step="0.01" placeholder="e.g., 7.5" required>
+                                <div class="form-text">UV radiation index</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Season</label>
+                                <select class="form-select" name="season" required>
+                                    <option value="">Select current season</option>
+                                    <option value="Summer">Summer</option>
+                                    <option value="Monsoon">Monsoon</option>
+                                    <option value="Winter">Winter</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Soil Texture</label>
+                                <select class="form-select" name="soil_texture" required>
+                                    <option value="">Select soil texture</option>
+                                    <option value="Clay">Clay Soil</option>
+                                    <option value="Loamy">Loamy Soil</option>
+                                    <option value="Sandy">Sandy Soil</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label">Tillage Practice</label>
+                                <select class="form-select" name="tillage_practice" required>
+                                    <option value="">Select tillage method</option>
+                                    <option value="High">High Tillage</option>
+                                    <option value="Low">Low Tillage</option>
+                                    <option value="No">No-Till</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg w-100">
+                                <i class="fas fa-microscope me-2"></i>
+                                <span class="submit-text">Predict Bacteria Count</span>
+                                <span class="loading-text d-none">
+                                    <i class="fas fa-spinner fa-spin me-2"></i>Analyzing Soil...
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <!-- Results -->
+                    <div id="bacillusResults" class="mt-4 d-none"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+$(document).ready(function() {
+    // Turmeric form submission
+    $('#turmericForm').on('submit', function(e) {
+        e.preventDefault();
+        
+        const $btn = $(this).find('button[type="submit"]');
+        const $submitText = $btn.find('.submit-text');
+        const $loadingText = $btn.find('.loading-text');
+        
+        // Show loading state
+        $btn.prop('disabled', true);
+        $submitText.addClass('d-none');
+        $loadingText.removeClass('d-none');
+        
+        // Prepare form data
+        const formData = {};
+        $(this).serializeArray().forEach(function(item) {
+            formData[item.name] = item.value;
+        });
+        
+        // Submit form
+        $.ajax({
+            url: '/predict/turmeric',
+            method: 'POST',
+            data: formData,
+            success: function(response) {
+                displayTurmericResults(response);
+            },
+            error: function(xhr) {
+                showError('Failed to get prediction. Please try again.');
+            },
+            complete: function() {
+                // Reset button
+                $btn.prop('disabled', false);
+                $submitText.removeClass('d-none');
+                $loadingText.addClass('d-none');
+            }
+        });
+    });
+    
+    // Bacillus form submission
+    $('#bacillusForm').on('submit', function(e) {
+        e.preventDefault();
+        
+        const $btn = $(this).find('button[type="submit"]');
+        const $submitText = $btn.find('.submit-text');
+        const $loadingText = $btn.find('.loading-text');
+        
+        // Show loading state
+        $btn.prop('disabled', true);
+        $submitText.addClass('d-none');
+        $loadingText.removeClass('d-none');
+        
+        // Prepare form data
+        const formData = {};
+        $(this).serializeArray().forEach(function(item) {
+            formData[item.name] = item.value;
+        });
+        
+        // Submit form
+        $.ajax({
+            url: '/predict/bacillus',
+            method: 'POST',
+            data: formData,
+            success: function(response) {
+                displayBacillusResults(response);
+            },
+            error: function(xhr) {
+                showError('Failed to get prediction. Please try again.');
+            },
+            complete: function() {
+                // Reset button
+                $btn.prop('disabled', false);
+                $submitText.removeClass('d-none');
+                $loadingText.addClass('d-none');
+            }
+        });
+    });
+});
+
+function displayTurmericResults(data) {
+    const severity = getSeverityInfo(data.most_likely);
+    
+    let html = `
+        <div class="card border-0 shadow">
+            <div class="card-header bg-light">
+                <h5 class="mb-0">
+                    ${severity.icon} Prediction Results
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="alert ${severity.alertClass} border-0">
+                    <h6 class="alert-heading d-flex align-items-center mb-2">
+                        ${severity.icon} Most Likely Status: ${data.most_likely}
+                    </h6>
+                </div>
+                
+                <h6 class="mb-3">Disease Probability Distribution:</h6>
+                <div class="row g-2">
+    `;
+    
+    data.predictions.forEach(function(pred) {
+        const percentage = (pred.probability * 100).toFixed(1);
+        const isHighest = pred.disease === data.most_likely;
+        
+        html += `
+            <div class="col-md-6">
+                <div class="card ${isHighest ? 'border-success bg-light' : 'border-light'}">
+                    <div class="card-body p-3">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="fw-semibold">${pred.disease}</span>
+                            <span class="badge ${isHighest ? 'bg-success' : 'bg-secondary'}">${percentage}%</span>
+                        </div>
+                        <div class="progress" style="height: 6px;">
+                            <div class="progress-bar ${isHighest ? 'bg-success' : 'bg-secondary'}" 
+                                 style="width: ${percentage}%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+    
+    html += `
+                </div>
+                
+                <div class="mt-4 p-4 bg-light rounded">
+                    <h6 class="text-success mb-3">
+                        <i class="fas fa-leaf me-2"></i>Recommended Actions:
+                    </h6>
+                    <div class="recommendation-text">${data.recommendation.replace(/\n/g, '<br>')}</div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    $('#turmericResults').html(html).removeClass('d-none');
+    $('#turmericResults')[0].scrollIntoView({ behavior: 'smooth' });
+}
+
+function displayBacillusResults(data) {
+    const healthIcon = getHealthIcon(data.health_status);
+    
+    let html = `
+        <div class="card border-0 shadow">
+            <div class="card-header bg-light">
+                <h5 class="mb-0">
+                    <i class="fas fa-microscope me-2"></i>Soil Health Analysis
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row g-3 mb-4">
+                    <div class="col-md-4">
+                        <div class="card bg-primary text-white">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Bacteria Count</h5>
+                                <h3 class="mb-0">${data.predicted_count.toLocaleString()}</h3>
+                                <small>CFU/g</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-success text-white">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Health Status</h5>
+                                <h4 class="mb-0">${healthIcon} ${data.health_status}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-info text-white">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Confidence</h5>
+                                <h3 class="mb-0">${(data.confidence * 100).toFixed(1)}%</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="p-4 bg-light rounded">
+                    <h6 class="text-primary mb-3">
+                        <i class="fas fa-microscope me-2"></i>Soil Enhancement Recommendations:
+                    </h6>
+                    <ul class="list-unstyled">
+    `;
+    
+    data.recommendations.forEach(function(rec, index) {
+        html += `
+            <li class="mb-2">
+                <i class="fas fa-check-circle text-success me-2"></i>
+                ${rec}
+            </li>
+        `;
+    });
+    
+    html += `
+                    </ul>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    $('#bacillusResults').html(html).removeClass('d-none');
+    $('#bacillusResults')[0].scrollIntoView({ behavior: 'smooth' });
+}
+
+function getSeverityInfo(disease) {
+    const severityMap = {
+        'None': {
+            icon: '<i class="fas fa-check-circle text-success"></i>',
+            alertClass: 'alert-success'
+        },
+        'Mild': {
+            icon: '<i class="fas fa-exclamation-triangle text-warning"></i>',
+            alertClass: 'alert-warning'
+        },
+        'Moderate': {
+            icon: '<i class="fas fa-exclamation-triangle text-orange"></i>',
+            alertClass: 'alert-warning'
+        },
+        'Severe': {
+            icon: '<i class="fas fa-times-circle text-danger"></i>',
+            alertClass: 'alert-danger'
+        }
+    };
+    
+    return severityMap[disease] || severityMap['None'];
+}
+
+function getHealthIcon(status) {
+    const iconMap = {
+        'Excellent': '<i class="fas fa-arrow-up"></i>',
+        'Good': '<i class="fas fa-arrow-up"></i>',
+        'Average': '<i class="fas fa-minus"></i>',
+        'Poor': '<i class="fas fa-arrow-down"></i>'
+    };
+    
+    return iconMap[status] || '<i class="fas fa-minus"></i>';
+}
+
+function showError(message) {
+    const alertHtml = `
+        <div class="alert alert-danger alert-dismissible fade show">
+            <i class="fas fa-exclamation-triangle me-2"></i>
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    `;
+    
+    // Add to active tab
+    const activeTab = $('.tab-pane.active');
+    activeTab.prepend(alertHtml);
+}
+</script>
+{% endblock %}
