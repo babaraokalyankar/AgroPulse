@@ -1,0 +1,48 @@
+None:
+Your crop appears healthy. Use balanced organic fertilizers like compost or well-rotted manure.
+Maintain consistent irrigation using drip or sprinkler methods.
+Regularly test soil for nutrients and pH balance.
+Apply biofertilizers like Azospirillum and Phosphobacteria to boost growth.
+
+Mild:
+Monitor the crop closely for early symptoms.
+Apply neem oil spray every 7 days as a natural preventive.
+Use biofertilizers and compost to strengthen crop immunity.
+Improve soil aeration and avoid overwatering.
+
+Moderate:
+Apply mild fungicides like Mancozeb (2g/l) or Copper Oxychloride.
+Remove visibly infected plants and leaves.
+Enhance field drainage and reduce moisture stagnation.
+Maintain crop spacing and avoid overhead irrigation.
+
+Severe:
+Immediate intervention required. Use a broad-spectrum fungicide or bactericide.
+Remove and destroy heavily infected plants.
+Disinfect farm tools and avoid working in wet fields to prevent spread.
+Apply Trichoderma or Pseudomonas bio-control agents in soil.
+Rotate crop with non-host varieties for next season.
+
+Bacterial Wilt:
+Apply Streptocycline 100 ppm solution during early infection stages.
+Avoid waterlogging and use raised beds to improve drainage.
+Ensure field sanitation and remove infected plants.
+Adopt crop rotation with non-host crops like cereals.
+
+Leaf Spot:
+Spray Mancozeb 2g/liter every 10 days until symptoms reduce.
+Improve air circulation between plants.
+Remove infected leaves and avoid overhead irrigation.
+Apply neem oil as a natural preventive measure.
+
+Rhizome Rot:
+Use Trichoderma viride mixed with compost during planting.
+Avoid excess moisture—improve drainage and avoid late irrigation.
+Treat seed rhizomes with fungicide before sowing.
+Monitor regularly for early signs and remove infected rhizomes.
+
+Powdery Mildew:
+Spray Sulphur-based fungicides like Wettable Sulphur at 2g/liter.
+Avoid excess nitrogen fertilizer—use balanced nutrients.
+Improve plant spacing for better airflow.
+Apply organic compost to enhance plant immunity.
