@@ -168,7 +168,7 @@ Fill in the prediction form with:
 - Fertilizer information
 - Season and UV index
 
-![Prediction Form](images/prediction-form.png)
+![Prediction Form](Prediction Form.png)
 
 ### Step 3: Get AI Predictions
 Receive instant analysis including:
@@ -176,17 +176,16 @@ Receive instant analysis including:
 - Soil health metrics
 - Treatment recommendations
 
-![Results Dashboard](images/results-dashboard.png)
+![Results Dashboard](Predictions.png)
 
 ### Step 4: Image Analysis (Optional)
-Upload plant photos for visual disease detection:
+Upload plant photos for visual disease detection 
 
-![Image Analysis](images/image-analysis.png)
 
 ### Step 5: Track History
 Monitor your predictions and outcomes over time:
 
-![History Tracker](images/history-tracker.png)
+![History Tracker](Track History.png)
 
 ## 📡 API Documentation
 
@@ -263,19 +262,17 @@ Content-Type: multipart/form-data
 ## 📸 Screenshots
 
 ### Homepage
-![Homepage](images/homepage-full.png)
+![Homepage](HomePage.png)
 
 ### Prediction Interface
-![Prediction Form](images/prediction-interface.png)
+![Prediction Form](Prediction Form.png)
 
 ### Results Dashboard
-![Dashboard](images/dashboard-analytics.png)
+![Dashboard](Predictions.png)
 
 ### Mobile View
-![Mobile Interface](images/mobile-view.png)
+![Mobile Interface](Mobile Image.png)
 
-### Image Analysis
-![Image Analysis Feature](images/image-analysis-feature.png)
 
 ## 🧠 Machine Learning Models
 
