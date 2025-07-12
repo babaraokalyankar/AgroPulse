@@ -4,16 +4,16 @@ Developed a smart farming platform using RNNs for Bacillus prediction, CNNs for 
 
 ## 📋 Table of Contents
 
-- [About The Project](#about-the-project)
-- [Features](Features)
-- [Technology Stack](#technology-stack)
-- [Getting Started](#getting-started)
-- [Installation](#installation)
-- [Usage](#usage)
-- [API Documentation](#api-documentation)
-- [Project Structure](#project-structure)
-- [Screenshots](#screenshots)
-- [Machine Learning Models](#machine-learning-models)
+- [About The Project]
+- [Features]
+- [Technology Stack]
+- [Getting Started]
+- [Installation]
+- [Usage]
+- [API Documentation]
+- [Project Structure]
+- [Screenshots]
+- [Machine Learning Models]
 
 
 ## 🎯 About The Project
