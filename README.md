@@ -157,7 +157,7 @@ SECRET_KEY=your-secret-key-here
 ### Step 1: Access the Application
 Navigate to `http://localhost:3000` in your web browser.
 
-![Login Screen](Login Screen.png)
+![Login Screen](Login%20Screen.png)
 
 ### Step 2: Input Environmental Data
 Fill in the prediction form with:
@@ -168,7 +168,7 @@ Fill in the prediction form with:
 - Fertilizer information
 - Season and UV index
 
-![Prediction Form](Prediction Form.png)
+![Prediction Form](Prediction%20Form.png)
 
 ### Step 3: Get AI Predictions
 Receive instant analysis including:
@@ -185,7 +185,7 @@ Upload plant photos for visual disease detection
 ### Step 5: Track History
 Monitor your predictions and outcomes over time:
 
-![History Tracker](Track History.png)
+![History Tracker](Track%20History.png)
 
 ## 📡 API Documentation
 
@@ -265,13 +265,13 @@ Content-Type: multipart/form-data
 ![Homepage](HomePage.png)
 
 ### Prediction Interface
-![Prediction Form](Prediction_Form.png)
+![Prediction Form](Prediction%20Form.png)
 
 ### Results Dashboard
 ![Dashboard](Predictions.png)
 
 ### Mobile View
-![Mobile Interface](Mobile_Image.png)
+![Mobile Interface](Mobile%20Image.png)
 
 
 ## 🧠 Machine Learning Models
