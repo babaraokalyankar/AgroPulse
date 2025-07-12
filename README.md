@@ -265,13 +265,13 @@ Content-Type: multipart/form-data
 ![Homepage](HomePage.png)
 
 ### Prediction Interface
-![Prediction Form](Prediction Form.png)
+![Prediction Form](Prediction_Form.png)
 
 ### Results Dashboard
 ![Dashboard](Predictions.png)
 
 ### Mobile View
-![Mobile Interface](Mobile Image.png)
+![Mobile Interface](Mobile_Image.png)
 
 
 ## 🧠 Machine Learning Models
